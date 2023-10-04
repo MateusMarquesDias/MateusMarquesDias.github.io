@@ -83,10 +83,13 @@ private String nome;
         funcionarios.add(funcionario);
     }
 }
+
 ```
 * __Possível recursão infinita:__ <br/>
 Se não for tratado corretamente, a dependência circular pode levar a uma recursão infinita durante o processo de clonagem. Por exemplo, ao tentar clonar um `Departamento`, ele pode tentar clonar todos os `Funcionario` associados, que por sua vez tentarão clonar o `Departamento` novamente, e assim por diante.
+
 ```java
+
 class Funcionario {
     private String nome;
     private Departamento departamento;
