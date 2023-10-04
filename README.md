@@ -110,195 +110,150 @@ A implementação do padrão Prototype envolve a criação de uma classe que atu
 
 O padrão Prototype permite criar cópias de objetos de maneira flexível e eficiente, evitando a necessidade de criar novas instâncias a partir de classes concretas. Isso é especialmente útil quando a configuração de objetos é complexa ou quando você deseja evitar a duplicação de código de inicialização.
 
-## Exemplo de Código - OBJETO3D - Com Cloneable
+## Exemplo de Código - Criando Carro - Com Cloneable
+
 ```java
-class Objeto3D implements Cloneable {
-    private String tipo;
-    private String cor;
 
- public Objeto3D() {
-        this.tipo = "Objeto 3D";
-        this.cor = "Branco";
-    }
-    
-public void setCor(String cor) {
-        this.cor = cor;
-    }
- 
-@Override
-    public Objeto3D clone() throws CloneNotSupportedException {
-        return (Objeto3D) super.clone();
-    }
-   
- @Override
-    public String toString() {
-        return "Tipo: " + tipo + ", Cor: " + cor;
-    }
-}
+class Carro implements Cloneable {
+    private String marca;
+    private String modelo;
 
-class Cubo extends Objeto3D {
-    private String tipo = "Cubo";
-    private double largura;
-    private double altura;
-    private double profundidade;
-    
-public Cubo() {
-        super();
-        this.largura = 1;
-        this.altura = 1;
-        this.profundidade = 1;
+    public Carro(String marca, String modelo) {
+        this.marca = marca;
+        this.modelo = modelo;
     }
-    
-@Override
-    public String toString() {
-    return super.toString() + ", Largura: " + largura + ", Altura: " + altura + ", Profundidade: " + profundidade;
-    }
-}
 
-class Esfera extends Objeto3D {
-    private String tipo = "Esfera";
-    private double raio;
-
-    public Esfera() {
-        super();
-        this.raio = 0.5;
+    public void exibirInformacoes() {
+        System.out.println("Marca: " + marca);
+        System.out.println("Modelo: " + modelo);
     }
 
     @Override
-    public String toString() {
-    return super.toString() + ", Raio: " + raio;
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 }
 
-public class Main {
+public class ExemploCloneCarro {
     public static void main(String[] args) {
 
-        Cubo prototipoCubo = new Cubo();
-        Esfera prototipoEsfera = new Esfera();
+        Carro original = new Carro("Toyota", "Corolla");
 
         try {
+            Carro clone = (Carro) original.clone();
 
-            Cubo cubo1 = prototipoCubo.clone();
-            Cubo cubo2 = prototipoCubo.clone();
-            cubo2.setCor("Azul");
+            clone.marca = "Honda";
 
-            Esfera esfera1 = prototipoEsfera.clone();
-            Esfera esfera2 = prototipoEsfera.clone();
-            esfera2.setCor("Vermelho");
+            System.out.println("Carro Original:");
+            original.exibirInformacoes();
 
-            System.out.println(cubo1);
-            System.out.println(cubo2);
-            System.out.println(esfera1);
-            System.out.println(esfera2);
+            System.out.println("\nCarro Clone:");
+            clone.exibirInformacoes();
+
         } catch (CloneNotSupportedException e) {
             e.printStackTrace();
         }
     }
 }
+
 ```
 
-## Exemplo de Código - OBJETO3D - Sem Cloneable
+## Exemplo de Código - Criando Carro - Class Abstract
 
 ```java
 
-class Objeto3D {
-    private String tipo;
-    private String cor;
- 
- public Objeto3D() {
-        this.tipo = "Objeto 3D";
-        this.cor = "Branco";
+abstract class CarroPrototype {
+    private String marca;
+    private String modelo;
+
+    public CarroPrototype(String marca, String modelo) {
+        this.marca = marca;
+        this.modelo = modelo;
     }
 
- public void setCor(String cor) {
-        this.cor = cor;
-    }
- 
-public Objeto3D clonar() {
-        Objeto3D clone = new Objeto3D();
-        clone.tipo = this.tipo;
-        clone.cor = this.cor;
-        return clone;
-    }
+    public abstract CarroPrototype clone();
 
-@Override
-    public String toString() {
-        return "Tipo: " + tipo + ", Cor: " + cor;
+    public void exibirInformacoes() {
+        System.out.println("Marca: " + marca);
+        System.out.println("Modelo: " + modelo);
     }
 }
 
-class Cubo extends Objeto3D {
-    private String tipo = "Cubo";
-    private double largura;
-    private double altura;
-    private double profundidade;
-
-    public Cubo() {
-        super();
-        this.largura = 1;
-        this.altura = 1;
-        this.profundidade = 1;
+class Carro extends CarroPrototype {
+    public Carro(String marca, String modelo) {
+        super(marca, modelo);
     }
 
     @Override
-    public Objeto3D clonar() {
-        Cubo clone = new Cubo();
-        clone.setCor(this.getCor());
-        clone.largura = this.largura;
-        clone.altura = this.altura;
-        clone.profundidade = this.profundidade;
-        return clone;
-    }
-
-    @Override
-    public String toString() {
-        return super.toString() + ", Largura: " + largura + ", Altura: " + altura + ", Profundidade: " + profundidade;
+    public CarroPrototype clone() {
+        return new Carro(this.getMarca(), this.getModelo());
     }
 }
 
-class Esfera extends Objeto3D {
-    private String tipo = "Esfera";
-    private double raio;
-
-    public Esfera() {
-        super();
-        this.raio = 0.5;
-    }
-
-@Override
-    public Objeto3D clonar() {
-        Esfera clone = new Esfera();
-        clone.setCor(this.getCor());
-        clone.raio = this.raio;
-        return clone;
-    }
-
-    @Override
-    public String toString() {
-        return super.toString() + ", Raio: " + raio;
-    }
-}
-
-public class Main {
+public class ExemploCloneCarro {
     public static void main(String[] args) {
-        Cubo prototipoCubo = new Cubo();
-        Esfera prototipoEsfera = new Esfera();
+       
+        CarroPrototype original = new Carro("Toyota", "Corolla");
 
-        Cubo cubo1 = (Cubo) prototipoCubo.clonar();
-        Cubo cubo2 = (Cubo) prototipoCubo.clonar();
-        cubo2.setCor("Azul");
+        CarroPrototype clone = original.clone();
 
-        Esfera esfera1 = (Esfera) prototipoEsfera.clonar();
-        Esfera esfera2 = (Esfera) prototipoEsfera.clonar();
-        esfera2.setCor("Vermelho");
-        System.out.println(cubo1);
-        System.out.println(cubo2);
-        System.out.println(esfera1);
-        System.out.println(esfera2);
+        ((Carro) clone).setMarca("Honda");
+
+        System.out.println("Carro Original:");
+        original.exibirInformacoes();
+
+        System.out.println("\nCarro Clone:");
+        clone.exibirInformacoes();
     }
 }
 
 ```
+## Exemplo de Código - Criando Carro
+
+```java
+
+class Carro {
+    private String marca;
+    private String modelo;
+
+    public Carro(String marca, String modelo) {
+        this.marca = marca;
+        this.modelo = modelo;
+    }
+
+    public Carro clonar() {
+        return new Carro(this.marca, this.modelo);
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
+    public void exibirInformacoes() {
+        System.out.println("Marca: " + marca);
+        System.out.println("Modelo: " + modelo);
+    }
+}
+
+public class ExemploCloneCarro {
+    public static void main(String[] args) {
+       
+        Carro original = new Carro("Toyota", "Corolla");
+
+        Carro clone = original.clonar();
+
+        clone.setMarca("Honda");
+
+        System.out.println("Carro Original:");
+        original.exibirInformacoes();
+
+        System.out.println("\nCarro Clone:");
+        clone.exibirInformacoes();
+    }
+}
+
+```
+
 ## Usos conhecidos
 
 Talvez o primeiro exemplo do padrão Prototype se encontre no sistema Sketchpad de Ivan Sutherland [Sut63]. A primeira aplicação amplamente conhecida do padrão numa linguagem orientada a objeto foi em ThingLab, na qual os usuários poderiam formar um objeto composto e então promovê-lo a um protótipo pela sua instalação numa biblioteca de objetos reutilizáveis [Bor81]. 
