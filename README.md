@@ -30,7 +30,9 @@ Em situações em que você deseja criar cópias de objetos existentes de maneir
 
 É importante lembrar que o uso do padrão Prototype em Java é mais eficaz quando você deseja criar cópias de objetos existentes, especialmente quando a criação desses objetos é um processo caro.
 
-## Estrutura - Implementação Básica 
+## Estrutura - Implementação Básica
+
+www.plantuml.com/plantuml/png/TL7D2i8m3BxdANBS61teKKG6FNaJV8BQPL2ehRJPGV3XhQ0MQRobtmzV-cNAR1AlLm_7m9GMOmdTPpgbo97lDmBjJSwelQF2GIl07Gw5Ze6mwykZEa77O1FnZrRXuiZF6v4Si4MxxzWBdl_Xv_LYNwiBuLkH7B2YKhZiaSFVTQ4w29LA9UuVuzX-7YfIXKgrYy94OIwdV080
 
 ## Estrutura - Implementação do Registo do Prototype
 
