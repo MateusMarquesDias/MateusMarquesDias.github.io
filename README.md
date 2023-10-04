@@ -305,5 +305,5 @@ Prototype e Abstract Factory (95) são padrões que competem entre si em várias
 
 ## Referencias
 
-Gamma Erich - Padrões de Projetos - Soluções Reutilizáveis
+Gamma Erich - Padrões de Projetos - Soluções Reutilizáveis </br>
 Mergulho nos Padrões de Projeto
