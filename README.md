@@ -32,8 +32,6 @@ Em situações em que você deseja criar cópias de objetos existentes de maneir
 
 ## Estrutura - Implementação Básica
 
-www.plantuml.com/plantuml/png/TL7D2i8m3BxdANBS61teKKG6FNaJV8BQPL2ehRJPGV3XhQ0MQRobtmzV-cNAR1AlLm_7m9GMOmdTPpgbo97lDmBjJSwelQF2GIl07Gw5Ze6mwykZEa77O1FnZrRXuiZF6v4Si4MxxzWBdl_Xv_LYNwiBuLkH7B2YKhZiaSFVTQ4w29LA9UuVuzX-7YfIXKgrYy94OIwdV080
-
 ## Estrutura - Implementação do Registo do Prototype
 
 É uma forma fácil de acessar protótipos que você usa de forma frequente, ele salva um conjunto de protótipos pré construído que estavam prontos para serem copiado
