@@ -31,16 +31,18 @@ Em situações em que você deseja criar cópias de objetos existentes de maneir
 É importante lembrar que o uso do padrão Prototype em Java é mais eficaz quando você deseja criar cópias de objetos existentes, especialmente quando a criação desses objetos é um processo caro.
 
 ## Estrutura - Implementação Básica
-
+![Prototype](TL7D2i8m3BxdANBS61teKKG6FNaJV8BQPL2ehRJPGV3XhQ0MQRobtmzV-cNAR1AlLm_7m9GMOmdTPpgbo97lDmBjJSwelQF2GIl07Gw5Ze6mwykZEa77O1FnZrRXuiZF6v4Si4MxxzZ_yuZXv_LYNwiBuLkH7B2YKhZiaSFVTQ4wI9KA9UuVuzX-7YfIXKgrYm9C5EPoooS0.png)
+    
 ## Estrutura - Implementação do Registo do Prototype
+![Prototype](ZPB1IiKm44Nt-OfPliSZFr14Absvq-9EN8HcB84qaMIoAFZnGekP44rqrtjpoEbCEqPIWT9cXN64uLqj24_1awVz0yLYLOoSPrnDfB0BaIiOu0QJzGxX0bSO6AwO5UcHS8ijZ6-70IIOWtrz-nEzmOFM_x-vyo8pad9hilx0E5qoScMcFJSpVTraml8D7S-LYiyR8YPwckUaT53.png)
 
-É uma forma fácil de acessar protótipos que você usa de forma frequente, ele salva um conjunto de protótipos pré construído que estavam prontos para serem copiado
+É uma forma fácil de acessar protótipos que você usa de forma frequente, ele salva um conjunto de protótipos pré construído que estavam prontos para serem copiado.
 
 ## Participantes
 
 * Prototype (Protótipo): Define a interface para clonar objetos e geralmente inclui um método "clone".
-*	ConcretePrototype (Protótipo Concreto): Implementa a interface Prototype e fornece a implementação específica para clonar a si mesmo.
-*	Client (Cliente): Cria novos objetos clonando um protótipo existente, em vez de criar novos objetos do zero.
+* ConcretePrototype (Protótipo Concreto): Implementa a interface Prototype e fornece a implementação específica para clonar a si mesmo.
+* Client (Cliente): Cria novos objetos clonando um protótipo existente, em vez de criar novos objetos do zero.
 
 ## Colaborações
 
@@ -50,22 +52,23 @@ Em situações em que você deseja criar cópias de objetos existentes de maneir
 
 ## Consequências
 
->	Vantagens
+### __Vantagens__
 
 *	Você pode clonar objetos sem acoplá-los a suas classes concretas.
 *	Você pode se livrar de códigos de inicialização repetidos em troca de clonar protótipos pré-construídos.
 *	Você pode produzir objetos complexos mais convenientemente.
 *	Você tem uma alternativa para herança quando lidar com configurações pré determinadas para objetos complexos.
 
->	Desvantagem
+### __Desvantagem__
 
 *	Clonar objetos complexos que têm referências circulares pode ser bem complicado.
 
-Exemplo de referências circulares:
+
+_Exemplo de referências circulares:_
 
 ```java
 
-*class Departamento {
+class Departamento {
 private String nome;
     private List<Funcionario> funcionarios;
     public Departamento(String nome) {
@@ -83,7 +86,7 @@ class Funcionario {
         this.nome = nome;
         this.departamento = departamento;
     }
-}*
+}
 
 ```
 ## Implementações
@@ -110,8 +113,7 @@ class Objeto3D implements Cloneable {
 public void setCor(String cor) {
         this.cor = cor;
     }
-
-    
+ 
 @Override
     public Objeto3D clone() throws CloneNotSupportedException {
         return (Objeto3D) super.clone();
@@ -214,7 +216,6 @@ public Objeto3D clonar() {
     }
 }
 
-
 class Cubo extends Objeto3D {
     private String tipo = "Cubo";
     private double largura;
@@ -243,7 +244,6 @@ class Cubo extends Objeto3D {
         return super.toString() + ", Largura: " + largura + ", Altura: " + altura + ", Profundidade: " + profundidade;
     }
 }
-
 
 class Esfera extends Objeto3D {
     private String tipo = "Esfera";
