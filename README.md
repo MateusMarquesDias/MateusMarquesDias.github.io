@@ -303,7 +303,7 @@ A “biblioteca de técnicas de interações”, no ModeComposer, armazena prot�
 
 Prototype e Abstract Factory (95) são padrões que competem entre si em várias situações, como discutimos no final deste capítulo. Porém, eles também podem ser usados em conjunto. Um Abstract Factory pode armazenar um conjunto de protótipos a partir dos quais podem ser clonados e retornados objetos-produto.
 
-## Referencias:
+## Referencias
 
 Gamma Erich - Padrões de Projetos - Soluções Reutilizáveis
 Mergulho nos Padrões de Projeto
