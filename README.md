@@ -60,6 +60,9 @@ Em situações em que você deseja criar cópias de objetos existentes de maneir
 *	Clonar objetos complexos que têm referências circulares pode ser bem complicado.
 
 Exemplo de referências circulares:
+
+```java
+
 *class Departamento {
 private String nome;
     private List<Funcionario> funcionarios;
@@ -80,6 +83,7 @@ class Funcionario {
     }
 }*
 
+```
 # Implementações
 
 A implementação do padrão Prototype envolve a criação de uma classe que atua como protótipo e permite a clonagem de objetos com base nesse protótipo. O Java fornece uma interface `Cloneable` e o método `clone()` para facilitar a criação de objetos clonáveis. 
@@ -91,7 +95,7 @@ A implementação do padrão Prototype envolve a criação de uma classe que atu
 O padrão Prototype permite criar cópias de objetos de maneira flexível e eficiente, evitando a necessidade de criar novas instâncias a partir de classes concretas. Isso é especialmente útil quando a configuração de objetos é complexa ou quando você deseja evitar a duplicação de código de inicialização.
 
 # Exemplo de Código - OBJETO3D - Com Cloneable
-
+```java
 class Objeto3D implements Cloneable {
     private String tipo;
     private String cor;
@@ -278,6 +282,7 @@ public class Main {
     }
 }
 
+```
 # Usos conhecidos
 
 Talvez o primeiro exemplo do padrão Prototype se encontre no sistema Sketchpad de Ivan Sutherland [Sut63]. A primeira aplicação amplamente conhecida do padrão numa linguagem orientada a objeto foi em ThingLab, na qual os usuários poderiam formar um objeto composto e então promovê-lo a um protótipo pela sua instalação numa biblioteca de objetos reutilizáveis [Bor81]. 
