@@ -17,8 +17,6 @@ Podemos solucionar esse problema copiando a parti de um objeto existente, outros
 
 ![Prototype](SoWkIImgAStDuShCAqajIajCJbM0i_oJib9ByerTkBWmX1Ii5BGLd7Foyr8LD1GqkO9IInBpqajpyj74dJEBaZ550qiJKueIKz25GueoiHh2nUMSavaAT862hXscux2upQP6LrS1xYHS2a1kmoCDTIHEURXhkHnIyrA08GW0.png)
 
-No exemplo acima, podemos observar o cliente criando um novo objeto com base em um objeto existente. A interface `Prototype` define a interface e inclui o método 'clonar'. A classe `ConcretePrototype` implementa a interface `Prototype` e é capaz de clonar a si mesma."
-
 ## Aplicabilidade
 
 Use o prototype, quando: 
