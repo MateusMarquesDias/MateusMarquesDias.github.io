@@ -20,6 +20,7 @@ Podemos solucionar esse problema copiando a parti de um objeto existente, outros
 ## Aplicabilidade
 
 Use o prototype, quando: <br/> 
+<br/> 
 Em situações em que você deseja criar cópias de objetos existentes de maneira eficiente e personalizá-las conforme necessário. Aqui estão algumas situações específicas em que o padrão Prototype é útil em Java:
 
 1.	Criação de objetos complexos
