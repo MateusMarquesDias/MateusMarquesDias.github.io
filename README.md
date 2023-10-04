@@ -1,23 +1,23 @@
 # Prototype
 
-# Definição
+## Definição
 
 Em padrões de projeto na programação orientada a objetos, o termo "prototype" refere-se a um padrão que se concentra na criação de objetos por meio da clonagem de um objeto existente, conhecido como "protótipo". 
 
-# Intenção
+## Intenção
 
 O padrão Prototype tem como objetivo criar novos objetos a partir de objetos existentes, conhecidos como protótipos, em vez de criar novos objetos do zero. Isso é útil quando a criação de um objeto é custosa em termos de desempenho ou quando os objetos têm uma estrutura complexa.
 
 O padrão Prototype permite que um objeto seja clonado para criar um novo objeto. O objeto original, chamado de protótipo, serve como modelo para a criação de cópias. A clonagem pode ser superficial (apenas copiando as propriedades básicas) ou profunda (copiando todas as propriedades e objetos internos).
 
-# Motivação
+## Motivação
 
 Em um sistema de modelagem 3D (exemplo), a criação de novos objetos tridimensionais a partir do zero é demorado devido a sua complexidade. Suponhamos que temos que criar vários objetos (Círculos, Triângulos, etc.) e cada objeto distinto venha levar 30 minutos para ser criado, depois de criado, precisaremos criar mais 10 objetos do mesmo tipo por uma necessidade especifica, isso levaria muito tempo, certo? Então, como solucionar esse problema?
 Podemos solucionar esse problema copiando a parti de um objeto existente, outros objetos do mesmo tipo com o padrão chamado Prototype.
 
 No exemplo acima, podemos observar o cliente criando um novo objeto com base em um objeto existente. A interface `Prototype` define a interface e inclui o método 'clonar'. A classe `ConcretePrototype` implementa a interface `Prototype` e é capaz de clonar a si mesma."
 
-# Aplicabilidade
+## Aplicabilidade
 
 Use o prototype, quando: 
 Em situações em que você deseja criar cópias de objetos existentes de maneira eficiente e personalizá-las conforme necessário. Aqui estão algumas situações específicas em que o padrão Prototype é útil em Java:
@@ -30,25 +30,25 @@ Em situações em que você deseja criar cópias de objetos existentes de maneir
 
 É importante lembrar que o uso do padrão Prototype em Java é mais eficaz quando você deseja criar cópias de objetos existentes, especialmente quando a criação desses objetos é um processo caro.
 
-# Estrutura - Implementação Básica 
+## Estrutura - Implementação Básica 
 
-# Estrutura - Implementação do Registo do Prototype
+## Estrutura - Implementação do Registo do Prototype
 
 É uma forma fácil de acessar protótipos que você usa de forma frequente, ele salva um conjunto de protótipos pré construído que estavam prontos para serem copiado
 
-# Participantes
+## Participantes
 
 * Prototype (Protótipo): Define a interface para clonar objetos e geralmente inclui um método "clone".
 *	ConcretePrototype (Protótipo Concreto): Implementa a interface Prototype e fornece a implementação específica para clonar a si mesmo.
 *	Client (Cliente): Cria novos objetos clonando um protótipo existente, em vez de criar novos objetos do zero.
 
-# Colaborações
+## Colaborações
 
 *	O padrão Prototype é um padrão de design de software que faz parte do grupo de padrões de criação. Ele é usado para criar novos objetos duplicando um objeto existente, conhecido como protótipo, em vez de criar um novo objeto do zero. Isso pode ser útil quando a criação de um objeto é mais custosa em termos de desempenho ou recursos do que a clonagem de um objeto existente.
 
 *	A colaboração básica envolve o cliente solicitando à fábrica de protótipos um novo objeto, especificando qual protótipo deseja. A fábrica de protótipos, por sua vez, cria uma cópia do protótipo solicitado e a retorna ao cliente. O cliente pode então usar o objeto clonado conforme necessário.
 
-# Consequências
+## Consequências
 
 >	Vantagens
 
@@ -86,7 +86,7 @@ class Funcionario {
 }*
 
 ```
-# Implementações
+## Implementações
 
 A implementação do padrão Prototype envolve a criação de uma classe que atua como protótipo e permite a clonagem de objetos com base nesse protótipo. O Java fornece uma interface `Cloneable` e o método `clone()` para facilitar a criação de objetos clonáveis. 
 
@@ -96,7 +96,7 @@ A implementação do padrão Prototype envolve a criação de uma classe que atu
 
 O padrão Prototype permite criar cópias de objetos de maneira flexível e eficiente, evitando a necessidade de criar novas instâncias a partir de classes concretas. Isso é especialmente útil quando a configuração de objetos é complexa ou quando você deseja evitar a duplicação de código de inicialização.
 
-# Exemplo de Código - OBJETO3D - Com Cloneable
+## Exemplo de Código - OBJETO3D - Com Cloneable
 ```java
 class Objeto3D implements Cloneable {
     private String tipo;
@@ -184,7 +184,7 @@ public class Main {
 }
 ```
 
-# Exemplo de Código - OBJETO3D - Sem Cloneable
+## Exemplo de Código - OBJETO3D - Sem Cloneable
 
 ```java
 
@@ -288,7 +288,7 @@ public class Main {
 }
 
 ```
-# Usos conhecidos
+## Usos conhecidos
 
 Talvez o primeiro exemplo do padrão Prototype se encontre no sistema Sketchpad de Ivan Sutherland [Sut63]. A primeira aplicação amplamente conhecida do padrão numa linguagem orientada a objeto foi em ThingLab, na qual os usuários poderiam formar um objeto composto e então promovê-lo a um protótipo pela sua instalação numa biblioteca de objetos reutilizáveis [Bor81]. 
 
@@ -299,16 +299,11 @@ Novos depuradores podem ser acrescentados ao etgdb ligando-o ao DebuggerAdaptor 
 
 A “biblioteca de técnicas de interações”, no ModeComposer, armazena protótipos de objetos que suportam várias técnicas de interação [Sha90]. Qualquer técnica de interação criada pelo Mode Composer pode ser usada como um protótipo colocando-a nesta biblioteca. O padrão Prototype permite ao Mode Composer suportar um conjunto ilimitado de técnicas de interação. O exemplo do editor musical discutido anteriormente se baseia no framework para desenhos do Unidraw [VL90].
 
-# Padrões Relacionados
+## Padrões Relacionados
 
 Prototype e Abstract Factory (95) são padrões que competem entre si em várias situações, como discutimos no final deste capítulo. Porém, eles também podem ser usados em conjunto. Um Abstract Factory pode armazenar um conjunto de protótipos a partir dos quais podem ser clonados e retornados objetos-produto.
 
-# Referencias:
+## Referencias:
 
 Gamma Erich - Padrões de Projetos - Soluções Reutilizáveis
 Mergulho nos Padrões de Projeto
-
-
-
-
-
