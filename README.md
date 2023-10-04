@@ -15,6 +15,8 @@ O padrão Prototype permite que um objeto seja clonado para criar um novo objeto
 Em um sistema de modelagem 3D (exemplo), a criação de novos objetos tridimensionais a partir do zero é demorado devido a sua complexidade. Suponhamos que temos que criar vários objetos (Círculos, Triângulos, etc.) e cada objeto distinto venha levar 30 minutos para ser criado, depois de criado, precisaremos criar mais 10 objetos do mesmo tipo por uma necessidade especifica, isso levaria muito tempo, certo? Então, como solucionar esse problema?
 Podemos solucionar esse problema copiando a parti de um objeto existente, outros objetos do mesmo tipo com o padrão chamado Prototype.
 
+![Prototype](SoWkIImgAStDuShCAqajIajCJbM0i_oJib9ByerTkBWmX1Ii5BGLd7Foyr8LD1GqkO9IInBpqajpyj74dJEBaZ550qiJKueIKz25GueoiHh2nUMSavaAT862hXscux2upQP6LrS1xYHS2a1kmoCDTIHEURXhkHnIyrA08GW0.png)
+
 No exemplo acima, podemos observar o cliente criando um novo objeto com base em um objeto existente. A interface `Prototype` define a interface e inclui o método 'clonar'. A classe `ConcretePrototype` implementa a interface `Prototype` e é capaz de clonar a si mesma."
 
 ## Aplicabilidade
