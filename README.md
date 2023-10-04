@@ -67,6 +67,9 @@ Em situações em que você deseja criar cópias de objetos existentes de maneir
 
 _Exemplo de referências circulares:_
 
+* __Dificuldade na criação de clones:__<br/>
+O padrão Prototype pressupõe que você pode criar cópias profundas dos objetos existentes, o que significa criar novos objetos que são independentes do objeto original. No entanto, devido à dependência circular entre `Departamento` e `Funcionario`, criar cópias profundas dessas classes pode ser complexo. Se você tentar criar um clone de um `Departamento`, ele também terá que criar clones de todos os `Funcionario` associados a ele, e vice-versa. Isso pode levar a um código complicado e propenso a erros.
+
 ```java
 
 class Departamento {
@@ -80,6 +83,10 @@ private String nome;
         funcionarios.add(funcionario);
     }
 }
+```
+* __Possível recursão infinita:__ <br/>
+Se não for tratado corretamente, a dependência circular pode levar a uma recursão infinita durante o processo de clonagem. Por exemplo, ao tentar clonar um `Departamento`, ele pode tentar clonar todos os `Funcionario` associados, que por sua vez tentarão clonar o `Departamento` novamente, e assim por diante.
+```java
 class Funcionario {
     private String nome;
     private Departamento departamento;
@@ -90,6 +97,9 @@ class Funcionario {
 }
 
 ```
+* __Dificuldade na manutenção:__ <br/>
+A dependência circular torna o código mais difícil de entender e manter. Qualquer alteração em uma classe pode afetar a outra, e você precisa ter cuidado para garantir que a clonagem seja feita corretamente e que não haja efeitos colaterais indesejados.
+
 ## Implementações
 
 A implementação do padrão Prototype envolve a criação de uma classe que atua como protótipo e permite a clonagem de objetos com base nesse protótipo. O Java fornece uma interface `Cloneable` e o método `clone()` para facilitar a criação de objetos clonáveis. 
